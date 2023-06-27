@@ -590,7 +590,7 @@ static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
 
     if (self.allowedAspectRatios == nil) {
         for (NSInteger i = 0; i < TOCropViewControllerAspectRatioPresetCustom; i++) {
-            NSString *itemTitle = verticalCropBox ? portraitRatioTitles[i] : landscapeRatioTitles[i];
+            NSString *itemTitle = (verticalCropBox && !self.alwaysShowLandscapePresets) ? portraitRatioTitles[i] : landscapeRatioTitles[i];
             [itemStrings addObject:itemTitle];
             [ratioValues addObject:@(i)];
         }
@@ -598,7 +598,7 @@ static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
     else {
         for (NSNumber *allowedRatio in self.allowedAspectRatios) {
             TOCropViewControllerAspectRatioPreset ratio = allowedRatio.integerValue;
-            NSString *itemTitle = verticalCropBox ? portraitRatioTitles[ratio] : landscapeRatioTitles[ratio];
+            NSString *itemTitle = (verticalCropBox && !self.alwaysShowLandscapePresets) ? portraitRatioTitles[ratio] : landscapeRatioTitles[ratio];
             [itemStrings addObject:itemTitle];
             [ratioValues addObject:allowedRatio];
         }
@@ -676,9 +676,11 @@ static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
     if (self.cropView.cropBoxAspectRatioIsPortrait &&
         aspectRatioCanSwapDimensions)
     {
-        CGFloat width = aspectRatio.width;
-        aspectRatio.width = aspectRatio.height;
-        aspectRatio.height = width;
+        if (!self.alwaysShowLandscapePresets) {
+            CGFloat width = aspectRatio.width;
+            aspectRatio.width = aspectRatio.height;
+            aspectRatio.height = width;
+        }
     }
     
     [self.cropView setAspectRatio:aspectRatio animated:animated];

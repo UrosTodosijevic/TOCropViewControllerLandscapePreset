@@ -285,6 +285,13 @@
  */
 @property (nonatomic, assign) BOOL cancelButtonHidden;
 
+/**
+ When enabled, forces showing of landscape presets and disables dimension swapping.
+
+ Default is NO.
+ */
+@property (nonatomic, assign) BOOL alwaysShowLandscapePresets;
+
 /** 
  If `showActivitySheetOnDone` is true, then these activity items will 
  be supplied to that UIActivityViewController in addition to the 
