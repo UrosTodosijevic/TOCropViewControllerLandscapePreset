@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-    s.name     = 'TOCropViewControllerLandscapePresets'
+    s.name     = 'TOCropViewControllerLandscapePreset'
     s.version  = '0.0.1'
     s.license  =  { :type => 'MIT', :file => 'LICENSE' }
     s.summary  = 'A view controller that enables cropping and rotation of UIImage objects.'
