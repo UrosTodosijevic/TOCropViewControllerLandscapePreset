@@ -585,6 +585,10 @@ static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
     NSArray<NSString *> *portraitRatioTitles = @[originalButtonTitle, squareButtonTitle, @"2:3", @"3:5", @"3:4", @"4:5", @"5:7", @"9:16"];
     NSArray<NSString *> *landscapeRatioTitles = @[originalButtonTitle, squareButtonTitle, @"3:2", @"5:3", @"4:3", @"5:4", @"7:5", @"16:9"];
 
+    if(self.alwaysShowLandscapePresets && self.useAlternativeTitleFor4x3Preset) {
+        landscapeRatioTitles[4] = @"Landscape";
+    }
+
     NSMutableArray *ratioValues = [NSMutableArray array];
     NSMutableArray *itemStrings = [NSMutableArray array];
 

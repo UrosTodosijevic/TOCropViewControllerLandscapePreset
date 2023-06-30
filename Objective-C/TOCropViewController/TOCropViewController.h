@@ -292,6 +292,13 @@
  */
 @property (nonatomic, assign) BOOL alwaysShowLandscapePresets;
 
+/**
+ When enabled, and alwaysShowLandscapePresets is also [true], preset picker will show alternative title ("Landscape") instead of "4:3".
+
+ Default is NO.
+ */
+@property (nonatomic, assign) BOOL useAlternativeTitleFor4x3Preset;
+
 /** 
  If `showActivitySheetOnDone` is true, then these activity items will 
  be supplied to that UIActivityViewController in addition to the 
