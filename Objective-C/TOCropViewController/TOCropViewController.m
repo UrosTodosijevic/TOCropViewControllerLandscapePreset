@@ -22,7 +22,7 @@
 
 #import "TOCropViewController.h"
 
-#import "TOCropViewControllerTransitioning.h"
+#import "TOCropViewControlle*rTransitioning.h"
 #import "TOActivityCroppedImageProvider.h"
 #import "UIImage+CropRotate.h"
 #import "TOCroppedImageAttributes.h"
@@ -586,7 +586,9 @@ static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
     NSArray<NSString *> *landscapeRatioTitles = @[originalButtonTitle, squareButtonTitle, @"3:2", @"5:3", @"4:3", @"5:4", @"7:5", @"16:9"];
 
     if(self.alwaysShowLandscapePresets && self.useAlternativeTitleFor4x3Preset) {
-        landscapeRatioTitles[4] = @"Landscape";
+        NSMutableArray<NSString *> *tempArray = [landscapeRatioTitles mutableCopy];
+        [tempArray replaceObjectAtIndex:4 withObject:@"Landscape"];
+        landscapeRatioTitles = [tempArray copy];
     }
 
     NSMutableArray *ratioValues = [NSMutableArray array];
