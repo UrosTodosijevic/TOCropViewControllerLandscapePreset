@@ -22,7 +22,7 @@
 
 #import "TOCropViewController.h"
 
-#import "TOCropViewControlle*rTransitioning.h"
+#import "TOCropViewControllerTransitioning.h"
 #import "TOActivityCroppedImageProvider.h"
 #import "UIImage+CropRotate.h"
 #import "TOCroppedImageAttributes.h"
